@@ -1,0 +1,81 @@
+/* Global CSS */
+
+/* Root Variables */
+:root {
+  --font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-weight: 400;
+  --line-height: 1.5;
+  --font-size: 14px;
+
+  /* Colors */
+  --color-text: #000; /* Default text color */
+  --color-bg-light: #ffffff; /* Light background color */
+  --color-bg-dark: #242424; /* Dark background color */
+  --color-link-hover: #747bff; /* Link hover color */
+
+  /* Font Smoothing */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Default Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* Ensures padding on small screens */
+  padding-right: 1rem; /* Ensures padding on small screens */
+  box-sizing: border-box;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
