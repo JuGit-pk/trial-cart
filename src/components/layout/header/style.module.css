@@ -1,0 +1,28 @@
+.header {
+  padding: 1.45rem 0;
+
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Playwrite NZ", sans-serif;
+  color: var(--color-text);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.nav svg:hover {
+  transition: all 0.01s linear;
+  cursor: pointer;
+  scale: 1.1;
+}

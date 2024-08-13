@@ -1,10 +1,11 @@
-import ShopByCategory from "./components/pages/shop-by-category-section";
+import LayoutWrapper from "./components/layout";
+import HomePage from "./components/pages/home";
 
 function App() {
   return (
-    <main>
-      <ShopByCategory />
-    </main>
+    <LayoutWrapper>
+      <HomePage />
+    </LayoutWrapper>
   );
 }
 

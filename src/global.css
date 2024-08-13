@@ -5,7 +5,7 @@
   --font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-weight: 400;
   --line-height: 1.5;
-  --font-size: 14px;
+  --font-size: 16px;
 
   /* Colors */
   --color-text: #000; /* Default text color */
@@ -44,8 +44,8 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem; /* Ensures padding on small screens */
-  padding-right: 1rem; /* Ensures padding on small screens */
+  padding-left: 1rem;
+  padding-right: 1rem;
   box-sizing: border-box;
 }
 
