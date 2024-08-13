@@ -4,12 +4,12 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.content}`}>
-        <p className={styles.logo}>Trial Mart</p>
+        <p className={styles.logo}>Trial Cart</p>
         <nav className={styles.nav}>
-          <a title="Favourites" href="#">
+          <a className={styles["nav-item"]} title="Favourites" href="#">
             <Icons.heart />
           </a>
-          <a title="Cart" href="#">
+          <a className={styles["nav-item"]} title="Cart" href="#">
             <Icons.cart />
           </a>
         </nav>
