@@ -1,10 +1,12 @@
 import LayoutWrapper from "./components/layout";
-import HomePage from "./components/pages/home";
+import CategoryPage from "./components/pages/category";
+// import HomePage from "./components/pages/home";
 
 function App() {
   return (
     <LayoutWrapper>
-      <HomePage />
+      {/* <HomePage /> */}
+      <CategoryPage />
     </LayoutWrapper>
   );
 }
