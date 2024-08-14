@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Icons from "../../icons"; // Assuming Icons.starFill and Icons.starEmpty are SVG components
-import styles from "./style.module.css";
+
+import Icons from "../../icons";
 import { useSingleProductCategories } from "../../../hooks/query/useSingleProductDetails";
+import styles from "./style.module.css";
 
 const ProductPage = () => {
   const navigate = useNavigate();
@@ -40,8 +41,9 @@ const ProductPage = () => {
         <div className={styles.details}>
           <h1 className={styles.title}>{data.title}</h1>
           <p className={styles.category}>{data.category}</p>
-          <div className={styles.rating}>
+          <div className={styles.rating} title={`Rating: ${data.rating.rate}`}>
             {renderStars(Math.round(data.rating.rate))}
+            <span className={styles.reviewCount}>{data.rating.rate}</span>
             <span className={styles.reviewCount}>
               ({data.rating.count} reviews)
             </span>
