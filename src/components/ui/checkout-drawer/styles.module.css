@@ -20,6 +20,8 @@
   right: 0;
   bottom: 0;
   top: 0;
+  z-index: 9999;
+  /* box-shadow: -1px 0 0 0 #d4d4d8; */
 }
 
 .innerContent {
