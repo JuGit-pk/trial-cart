@@ -1,30 +1,49 @@
 import React from "react";
-import styles from "./style.module.css";
 import { Link } from "react-router-dom";
+import styles from "./style.module.css";
+import { IProduct } from "../../../../types";
 
 type IProps = {
-  id: number;
-  title: string;
-  price: string;
-  image: string;
+  product: IProduct;
 };
 
-const ProductCard: React.FC<IProps> = ({ title, price, image, id }) => {
+const ProductCard: React.FC<IProps> = ({ product }) => {
+  const { id, title, price, image, rating } = product;
+
+  // Function to display star ratings with the review count
+  const renderRating = (ratings: number) => {
+    const stars = [];
+    for (let i = 0; i < ratings; i++) {
+      stars.push(
+        <span key={i}>&#9733;</span> // Unicode star character
+      );
+    }
+    return (
+      <div className={styles.rating}>
+        {stars}
+        <span className={styles.ratingCount}>
+          {/* {rating.count > 0 ? `${rating.count} reviews` : "No reviews"} */}
+        </span>
+      </div>
+    );
+  };
+
   return (
-    <Link to={`/product/${id}`}>
-      <div className={styles.card} title={title}>
+    <div className={styles.card} title={title}>
+      <Link to={`/category/${product.category}/${id}`}>
         <div className={styles.imageContainer}>
           <img src={image} alt={title} className={styles.image} />
         </div>
         <div className={styles.info}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.price}>${price}</p>
+          {renderRating(rating.rate)}
+          <p className={styles.price}>${price.toFixed(2)}</p>
         </div>
         <div className={styles.tray}>
           <button className={styles.button}>Add to Cart</button>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 };
 

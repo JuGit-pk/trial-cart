@@ -1,20 +1,22 @@
-import styles from "./style.module.css";
-import { MAIN_CATEGORIES } from "../../../../utils/constants";
 import { Link } from "react-router-dom";
 
+import styles from "./style.module.css";
+import { useProductCategories } from "../../../../hooks/query/useProductCategories";
+
 const ShopByCategorySection = () => {
+  const { data } = useProductCategories();
   return (
     <section className={`${styles["shop-by-category-section"]} container`}>
       <h2 className={styles.title}>Shop By Category</h2>
       <div className={styles.cards}>
-        {MAIN_CATEGORIES.map((category) => (
+        {data?.map((category) => (
           <Link
-            key={category.name}
+            key={category}
             className={styles.card}
-            title={category.name}
-            to={`category/${category.name}`}
+            title={category}
+            to={`category/${category}`}
           >
-            <h3 className={styles["card-name"]}>{category.name}</h3>
+            <h3 className={styles["card-name"]}>{category}</h3>
           </Link>
         ))}
       </div>
