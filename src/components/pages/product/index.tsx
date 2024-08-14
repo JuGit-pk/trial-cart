@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import Icons from "../../icons";
 import styles from "./style.module.css";
 
@@ -11,9 +12,14 @@ const PRODUCT = {
 };
 
 const ProductPage = () => {
+  const navigate = useNavigate();
   return (
     <div className={`${styles.page} container`}>
-      <button className={styles.backButton} title="Go back">
+      <button
+        onClick={() => navigate(-1)}
+        className={styles.backButton}
+        title="Go back"
+      >
         <Icons.backChevron />
       </button>
       <div className={styles.content}>

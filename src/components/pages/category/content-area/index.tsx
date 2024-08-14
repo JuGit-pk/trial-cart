@@ -101,6 +101,7 @@ const CategoryContentArea = () => {
       <div className={styles.cards}>
         {PRODUCTS.map((product) => (
           <ProductCard
+            id={product.id}
             key={product.id}
             title={product.title}
             price={product.price}

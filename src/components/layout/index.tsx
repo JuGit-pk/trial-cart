@@ -1,10 +1,12 @@
+import { Outlet } from "react-router-dom";
+
 import Header from "./header";
 
-const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+const LayoutWrapper = () => {
   return (
     <main>
       <Header />
-      {children}
+      <Outlet />
     </main>
   );
 };
