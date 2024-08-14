@@ -1,5 +1,6 @@
 import LayoutWrapper from "./components/layout";
-import ProductPage from "./components/pages/product";
+import DetailedCheckoutPage from "./components/pages/detailed-checkout";
+// import ProductPage from "./components/pages/product";
 // import CategoryPage from "./components/pages/category";
 // import HomePage from "./components/pages/home";
 
@@ -8,7 +9,8 @@ function App() {
     <LayoutWrapper>
       {/* <HomePage /> */}
       {/* <CategoryPage /> */}
-      <ProductPage />
+      {/* <ProductPage /> */}
+      <DetailedCheckoutPage />
     </LayoutWrapper>
   );
 }

@@ -13,7 +13,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 600;
-  font-family: "Playwrite NZ", sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   color: var(--color-text);
 }
 .nav {
