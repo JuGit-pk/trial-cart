@@ -38,6 +38,14 @@
   transition: all 0.3s ease-in-out;
   -webkit-tap-highlight-color: transparent;
 }
+/* reset button styling */
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
 
 /* Container */
 .container {
@@ -74,8 +82,8 @@
   }
 }
 
-/* @media (min-width: 1536px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 1536px;
+    max-width: 1440px;
   }
-} */
+}

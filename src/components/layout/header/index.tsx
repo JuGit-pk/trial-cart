@@ -1,5 +1,7 @@
 import Icons from "../../icons";
 import styles from "./style.module.css";
+
+import { CheckoutDrawer } from "../../ui/checkout-drawer";
 const Header = () => {
   return (
     <header className={styles.header}>
@@ -10,7 +12,7 @@ const Header = () => {
             <Icons.heart />
           </a>
           <a className={styles["nav-item"]} title="Cart" href="#">
-            <Icons.cart />
+            <CheckoutDrawer />
           </a>
         </nav>
       </div>
