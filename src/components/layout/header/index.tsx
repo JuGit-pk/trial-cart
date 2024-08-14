@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import Icons from "../../icons";
+// import Icons from "../../icons";
 import styles from "./style.module.css";
 import { CheckoutDrawer } from "../../ui/checkout-drawer";
 
@@ -27,9 +27,9 @@ const Header = () => {
           <p className={styles.logo}>Trial Cart</p>
         </Link>
         <nav className={styles.nav}>
-          <span className={styles["nav-item"]} title="Favourites">
+          {/* <span className={styles["nav-item"]} title="Favourites">
             <Icons.heart />
-          </span>
+          </span> */}
           <span className={styles["nav-item"]} title="Cart">
             <CheckoutDrawer />
           </span>
