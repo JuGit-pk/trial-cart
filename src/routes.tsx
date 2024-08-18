@@ -6,6 +6,7 @@ import ProductPage from "./components/pages/product";
 import DetailedCheckoutPage from "./components/pages/detailed-checkout";
 import LayoutWrapper from "./components/layout";
 import ErrorPage from "./components/pages/error";
+import CompletionPage from "./components/pages/completion";
 
 export const router = createBrowserRouter([
   {
@@ -25,10 +26,14 @@ export const router = createBrowserRouter([
         path: "category/:categorySlug/:productId",
         element: <ProductPage />,
       },
+      {
+        path: "checkout",
+        element: <DetailedCheckoutPage />,
+      },
+      {
+        path: "/completion",
+        element: <CompletionPage />,
+      },
     ],
-  },
-  {
-    path: "/checkout",
-    element: <DetailedCheckoutPage />,
   },
 ]);

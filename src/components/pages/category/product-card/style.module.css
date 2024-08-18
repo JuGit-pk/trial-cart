@@ -8,12 +8,12 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensures the card stretches to fill the height */
+  height: 100%;
 }
 
 .imageContainer {
   overflow: hidden;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
   aspect-ratio: 1 / 1;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .info {
-  flex-grow: 1; /* Takes up the remaining space */
+  flex-grow: 1;
   padding: 1rem;
   text-align: center;
   display: flex;
@@ -46,13 +46,13 @@
   justify-content: center;
   margin: 0.5rem 0;
   font-size: 0.875rem;
-  color: #fbbf24; /* Gold color for stars */
+  color: #fbbf24;
 }
 
 .rating-count {
   margin-left: 8px;
   font-size: 0.875rem;
-  color: #4b5563; /* Subtle gray for the review count */
+  color: #4b5563;
 }
 
 .price {
@@ -79,7 +79,7 @@
 }
 
 .button {
-  background-color: #2563eb;
+  background-color: black;
   color: white;
   padding: 8px 16px;
   border: none;
@@ -93,5 +93,5 @@
 }
 
 .card:hover .tray {
-  bottom: 40%; /* Reveal the tray on hover */
+  bottom: 40%;
 }

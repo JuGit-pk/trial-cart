@@ -11,7 +11,6 @@ const CategoryContentArea = () => {
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const filterValue = e.target.value;
-    // Implement the filtering logic based on filterValue
     console.log(`Selected filter: ${filterValue}`);
   };
 

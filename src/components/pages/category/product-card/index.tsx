@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./style.module.css";
+
 import { IProduct } from "../../../../types";
+import { useCartCtx } from "../../../../hooks/context/useCartCtx";
+import styles from "./style.module.css";
 
 type IProps = {
   product: IProduct;
 };
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
+  const { addItem } = useCartCtx();
   const { id, title, price, image, rating } = product;
 
   // Function to display star ratings with the review count
@@ -28,6 +31,11 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
     );
   };
 
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    addItem(product);
+  };
+
   return (
     <div className={styles.card} title={title}>
       <Link to={`/category/${product.category}/${id}`}>
@@ -40,7 +48,9 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
           <p className={styles.price}>${price.toFixed(2)}</p>
         </div>
         <div className={styles.tray}>
-          <button className={styles.button}>Add to Cart</button>
+          <button className={styles.button} onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </Link>
     </div>

@@ -1,14 +1,29 @@
 import { Drawer } from "vaul";
+import { Link } from "react-router-dom";
 
 import Icons from "../../icons";
 import styles from "./styles.module.css";
+import { useCartCtx } from "../../../hooks/context/useCartCtx";
 
 export function CheckoutDrawer() {
+  const {
+    items: cartItems,
+    total,
+    decrementItem,
+    incrementItem,
+    removeItem,
+  } = useCartCtx();
+
   return (
     <Drawer.Root direction="right">
       <Drawer.Trigger asChild>
         <button className={styles.trigger}>
           <Icons.cart />
+          {cartItems.length > 0 && (
+            <span className={styles.cartBadge}>
+              {cartItems.reduce((a, b) => a + b.quantity, 0)}
+            </span>
+          )}
         </button>
       </Drawer.Trigger>
       <Drawer.Portal>
@@ -21,64 +36,60 @@ export function CheckoutDrawer() {
                 <Icons.x />
               </Drawer.Close>
             </div>
-            <div className={styles.cartItems}>
-              {/* Add your cart items here */}
-              <div className={styles.cartItem}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Item 1"
-                  className={styles.cartItemImage}
-                />
-                <div className={styles.cartItemDetails}>
-                  <span className={styles.cartItemName}>Item 1</span>
-                  <span className={styles.cartItemPrice}>$30</span>
-                </div>
-                <div className={styles.cartItemQuantity}>
-                  <button className={styles.quantityButton}>-</button>
-                  <span>1</span>
-                  <button className={styles.quantityButton}>+</button>
-                </div>
+            {cartItems.length > 0 ? (
+              <div className={styles.cartItems}>
+                {cartItems.map((item) => (
+                  <div className={styles.cartItem}>
+                    <div className={styles.cartItemImageContainer}>
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className={styles.cartItemImage}
+                      />
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => removeItem(item.id)}
+                      >
+                        delete
+                      </button>
+                    </div>
+                    <div className={styles.cartItemDetails}>
+                      <span className={styles.cartItemName}>{item.title}</span>
+                      <span className={styles.cartItemPrice}>{item.price}</span>
+                    </div>
+                    <div className={styles.cartItemQuantity}>
+                      <button
+                        className={styles.quantityButton}
+                        onClick={() => decrementItem(item.id)}
+                      >
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        className={styles.quantityButton}
+                        onClick={() => incrementItem(item.id)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.cartItem}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Item 2"
-                  className={styles.cartItemImage}
-                />
-                <div className={styles.cartItemDetails}>
-                  <span className={styles.cartItemName}>Item 2</span>
-                  <span className={styles.cartItemPrice}>$40</span>
-                </div>
-                <div className={styles.cartItemQuantity}>
-                  <button className={styles.quantityButton}>-</button>
-                  <span>1</span>
-                  <button className={styles.quantityButton}>+</button>
-                </div>
+            ) : (
+              <div className={styles.emptyCart}>
+                <Icons.cart width={160} height={160} />
+                <p>Your cart is empty</p>
               </div>
-              <div className={styles.cartItem}>
-                <img
-                  src="https://via.placeholder.com/100"
-                  alt="Item 3"
-                  className={styles.cartItemImage}
-                />
-                <div className={styles.cartItemDetails}>
-                  <span className={styles.cartItemName}>Item 3</span>
-                  <span className={styles.cartItemPrice}>$30</span>
-                </div>
-                <div className={styles.cartItemQuantity}>
-                  <button className={styles.quantityButton}>-</button>
-                  <span>1</span>
-                  <button className={styles.quantityButton}>+</button>
-                </div>
-              </div>
+            )}
+          </div>
+          {cartItems.length > 0 && (
+            <div className={styles.footer}>
+              <div className={styles.totalPrice}>{`Total: $${total}`}</div>
+              <Link to="/checkout" className={styles.checkoutButton}>
+                Proceed to Checkout
+              </Link>
             </div>
-          </div>
-          <div className={styles.footer}>
-            <div className={styles.totalPrice}>Total: $100</div>
-            <button className={styles.checkoutButton}>
-              Proceed to Checkout
-            </button>
-          </div>
+          )}
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>

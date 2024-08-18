@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-
-// import Icons from "../../icons";
 import styles from "./style.module.css";
 import { CheckoutDrawer } from "../../ui/checkout-drawer";
+import { useCartCtx } from "../../../hooks/context/useCartCtx";
 
 const Header = () => {
+  const { items } = useCartCtx();
+
   useEffect(() => {
     const handleScroll = () => {
       const header = document.querySelector(`.${styles.header}`) as HTMLElement;
@@ -27,12 +28,12 @@ const Header = () => {
           <p className={styles.logo}>Trial Cart</p>
         </Link>
         <nav className={styles.nav}>
-          {/* <span className={styles["nav-item"]} title="Favourites">
-            <Icons.heart />
-          </span> */}
-          <span className={styles["nav-item"]} title="Cart">
+          <div className={styles["nav-item"]} title="Cart">
             <CheckoutDrawer />
-          </span>
+            {items.length > 0 && (
+              <span className={styles.cartBadge}>{items.length}</span>
+            )}
+          </div>
         </nav>
       </div>
     </header>

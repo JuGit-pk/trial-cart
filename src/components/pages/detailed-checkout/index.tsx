@@ -1,6 +1,10 @@
+import { useCartCtx } from "../../../hooks/context/useCartCtx";
+import Payment from "./payment";
 import styles from "./style.module.css";
 
 const DetailedCheckoutPage = () => {
+  const { items, total, decrementItem, incrementItem } = useCartCtx();
+
   return (
     <div className={`${styles.page} container`}>
       <div className={styles.cartSection}>
@@ -16,42 +20,56 @@ const DetailedCheckoutPage = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className={styles.productDetails}>
-                  <img
-                    src="https://via.placeholder.com/100"
-                    alt="Product"
-                    className={styles.productImage}
-                  />
-                  <span>ZebraBlend T-Shirt (Orange)</span>
-                </td>
-                <td>$55.00</td>
-                <td>
-                  <div className={styles.quantityControls}>
-                    <button className={styles.quantityButton}>-</button>
-                    <span>2</span>
-                    <button className={styles.quantityButton}>+</button>
-                  </div>
-                </td>
-                <td>$110.00</td>
-              </tr>
+              {items.map((item) => (
+                <tr>
+                  <td className={styles.productDetails}>
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className={styles.productImage}
+                    />
+                    <span>{item.title}</span>
+                  </td>
+                  <td>${item.price}</td>
+                  <td>
+                    <div className={styles.quantityControls}>
+                      <button
+                        className={styles.quantityButton}
+                        onClick={() => decrementItem(item.id)}
+                      >
+                        -
+                      </button>
+                      <span>{item.quantity}</span>
+                      <button
+                        className={styles.quantityButton}
+                        onClick={() => incrementItem(item.id)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td>${(item.price * item.quantity).toFixed(2)}</td>
+                </tr>
+              ))}
             </tbody>
             <tfoot className={styles.cartTotal}>
               <tr>
                 <td colSpan={3} className={styles.cartTotalText}>
                   Total
                 </td>
-                <td className={styles.cartTotalPrice}>$110.00</td>
+                <td className={styles.cartTotalPrice}>${total.toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>
         </div>
       </div>
 
-      <div className={styles.checkoutSection}>
-        <h2>Checkout</h2>
-        <div className={styles["checkoutForm"]}></div>
-      </div>
+      {items.length > 0 && (
+        <div className={styles.checkoutSection}>
+          <h2>Checkout</h2>
+          <Payment />
+        </div>
+      )}
     </div>
   );
 };
