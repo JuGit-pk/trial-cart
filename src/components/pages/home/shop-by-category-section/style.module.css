@@ -1,13 +1,16 @@
 .shop-by-category-section {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
-  /* padding: 8rem 0; */
-  padding: 2rem 0;
+  gap: 3rem;
+  padding: 4rem 0;
 }
+
 .title {
-  font-size: 60px;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
+
 .cards {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -31,11 +34,29 @@
   height: 260px;
   border-radius: 1rem;
   background-color: #f8f8f8;
-  transition: 0.3s;
+  border: 1px solid black;
+  overflow: hidden;
+  transition: transform 0.3s, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
+
+.card:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-5px);
+}
+
 .card-name {
   position: absolute;
   bottom: 1.25rem;
   left: 2rem;
   font-size: 1.75rem;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.card:hover .card-name {
+  color: #111827;
 }

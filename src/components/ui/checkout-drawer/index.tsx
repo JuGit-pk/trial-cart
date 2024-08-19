@@ -55,7 +55,9 @@ export function CheckoutDrawer() {
                     </div>
                     <div className={styles.cartItemDetails}>
                       <span className={styles.cartItemName}>{item.title}</span>
-                      <span className={styles.cartItemPrice}>{item.price}</span>
+                      <span
+                        className={styles.cartItemPrice}
+                      >{`$ ${item.price}`}</span>
                     </div>
                     <div className={styles.cartItemQuantity}>
                       <button
