@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Trial Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Trial Cart is an e-commerce application built with React, TypeScript, and Vite, using pnpm as the package manager.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **E-commerce functionality**
+- **TypeScript and CSS Modules**
+- **Items with categories**
+- **Stripe payment integration**
+- **Cart context for state management**
+- **Mobile responsive design**
 
-## Expanding the ESLint configuration
+## Features in Progress
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Authentication**
+- **Testing with Jest**
+- **Skeleton loaders**
+- **Search and sort functionality**
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Node.js** and **pnpm** installed
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/JuGit-pk/trial-cart.git
+   cd trial-cart
+   ```
+
+2. Install dependencies using pnpm:
+
+   ```sh
+   pnpm install
+   ```
+
+3. Run the development server:
+   `pnpm dev`
+4. Build the project for production::
+   `pnpm build`
+5. Preview the production build:
+   `pnpm preview`
+
+## Deployed at:
+
+[Live URL](https://trial-cart.vecel.app/)
